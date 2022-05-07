@@ -1,8 +1,9 @@
 import sys
-import cv2
 import numpy as np
 import cv2 as cv
 
+# Insert 3 parameters: Image path, Index of brightness, random to darken the image
+# Insert 2 parameters: Image path, Index of brightness to lighten the image
 
 def main(argv):
 
@@ -23,7 +24,7 @@ def main(argv):
     Intensity_Matrix = np.ones(src.shape, dtype = "uint8") * brightness
 
     b_img = cv.add(src, Intensity_Matrix)
-    if (argv[2]):
+    if (len(sys.argv) > 3):
         b_img = cv.subtract(src, Intensity_Matrix)
     
     
